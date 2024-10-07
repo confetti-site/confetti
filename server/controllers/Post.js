@@ -499,7 +499,7 @@ exports.getUserPosts = async (req, res) => {
                 totalLength: posts.length
             })
         }
-        posts = await Post.find({ author:mongoose.Types.ObjectId(userId) })
+        posts = await Post.find({ author:new mongoose.Types.ObjectId(userId) })
         .populate("author")
         .exec();
         const totalLength = posts?.length;
